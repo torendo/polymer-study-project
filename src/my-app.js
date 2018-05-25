@@ -4,7 +4,6 @@ import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
 import '@polymer/app-layout/app-toolbar/app-toolbar.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
-import './my-icons.js';
 import './my-view';
 
 // Gesture events like tap and track generated from touch will not be
@@ -39,7 +38,7 @@ class MyApp extends PolymerElement {
         </app-toolbar>
       </app-header>
 
-      <my-view name="view"></my-view>
+      <my-view></my-view>
     `;
   }
 }
