@@ -30,11 +30,12 @@ class MyModel extends PolymerElement {
   }
   remove(id) {
     const pos = this.todos.findIndex(item => item.id === id);
-    this.todos.splice(pos, 1);
+    this.splice('todos', pos, 1);
   }
   toggleStatus(id) {
     const item = this.todos.find(item => item.id === id);
     item.completed = !item.completed;
+    this.notifySplices('todos', item);
   }
 }
 

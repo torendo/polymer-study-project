@@ -3,10 +3,10 @@ import '@polymer/paper-checkbox/paper-checkbox';
 import '@polymer/paper-input/paper-input';
 import '@polymer/paper-button/paper-button';
 import '@polymer/paper-icon-button/paper-icon-button';
-import '@polymer/iron-flex-layout/iron-flex-layout';
 import './shared-styles.js';
 import './my-icons.js';
 import './my-model.js';
+import './todo-item.js';
 
 class MyView extends PolymerElement {
   static get template() {
@@ -16,11 +16,8 @@ class MyView extends PolymerElement {
           display: block;
           padding: 10px;
         }
-        .container {
-          @apply(--layout-horizontal);
-        }
-        .flexchild {
-          @apply(--layout-flex);
+        .completed {
+          text-decoration: underline;
         }
       </style>
       
@@ -32,18 +29,21 @@ class MyView extends PolymerElement {
       </div>
       
       <div class="card">
-        <template is="dom-repeat" items="{{todos}}" as="todo">
-          <p class="container">
-            <paper-checkbox class="flexchild">[[todo.description]]</paper-checkbox>
-            <paper-icon-button icon="my-icons:close" on-click="remove.bind([[todo.id]])"></paper-icon-button>
-          </p>
+        <template is="dom-repeat" items="{{todos}}" sort="_sortTodos" as="todo">
+          <todo-item todo="{{todo}}" on-remove="remove" on-toggle="toggle"></todo-item>
         </template>
       </div>
       
-      <div class="card">
-        Total: [[total]]
+      <div class="card container">
+        <template is="dom-if" if=[[total]]>
+          <div class="flexchild">Total: [[total]]</div>
+          <paper-icon-button icon="my-icons:close" on-click="clear"></paper-icon-button>
+        </template>
       </div>
     `;
+  }
+  _sortTodos(a, b) {
+    return a.completed - b.completed;
   }
   addNew() {
     const description = this.$.addNewInput.value;
@@ -52,7 +52,15 @@ class MyView extends PolymerElement {
       this.$.addNewInput.value = '';
     }
   }
-
+  remove(e) {
+    this.$.todos.remove(e.target.todo.id);
+  }
+  toggle(e) {
+    this.$.todos.toggleStatus(e.target.todo.id);
+  }
+  clear() {
+    this.$.todos.clear();
+  }
 }
 
 window.customElements.define('my-view', MyView);
