@@ -22,8 +22,8 @@ class MyModel extends PolymerElement {
   _computeTotal() {
     return this.todos.length;
   }
-  clear() {
-    this.todos = [];
+  clearCompleted() {
+    this.todos = this.todos.filter(item => !item.completed);
   }
   add(description) {
     this.push('todos', {id: Math.floor(Math.random() * 1e10), completed: false, description});

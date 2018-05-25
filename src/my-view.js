@@ -47,6 +47,7 @@ class MyView extends PolymerElement {
     if (description) {
       this.$.todos.add(description);
       this.$.addNewInput.value = '';
+      this.$.addNewInput.focus();
     }
   }
   remove(e) {
@@ -56,7 +57,7 @@ class MyView extends PolymerElement {
     this.$.todos.toggleStatus(e.target.todo.id);
   }
   clear() {
-    this.$.todos.clear();
+    this.$.todos.clearCompleted();
   }
 }
 
