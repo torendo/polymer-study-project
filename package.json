@@ -1,0 +1,35 @@
+{
+  "name": "polymer-study-project",
+  "version": "1.0.0",
+  "description": "clone of https://github.com/PolymerLabs/start-polymer3.git for study purposes",
+  "main": "src/start-polymer3.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torendo/polymer-study-project.git"
+  },
+  "author": "Stanislav Proshkin (https://github.com/torendo)",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/torendo/polymer-study-project/issues"
+  },
+  "homepage": "https://github.com/torendo/polymer-study-project#readme",
+  "scripts": {
+    "start": "./node_modules/.bin/polymer serve",
+    "build": "./node_modules/.bin/polymer build",
+    "lint": "./node_modules/.bin/polymer lint"
+  },
+  "dependencies": {
+    "@polymer/app-layout": "^3.0.0-pre.19",
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.19",
+    "@polymer/paper-checkbox": "^3.0.0-pre.19",
+    "@polymer/paper-icon-button": "^3.0.0-pre.19",
+    "@polymer/polymer": "^3.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.7.2"
+  },
+  "engines": {
+    "node": ">=8.0"
+  }
+}
