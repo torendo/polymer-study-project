@@ -26,8 +26,8 @@ class MyView extends PolymerElement {
       </div>
       
       <div class="card">
-        <template is="dom-repeat" items="{{todos}}" sort="_sortTodos" as="todo">
-          <todo-item todo="{{todo}}" completed="[[todo.completed]]" on-remove="remove" on-toggle="toggle"></todo-item>
+        <template is="dom-repeat" items="{{todos}}" sort="_sortTodos">
+          <todo-item todo="{{item}}" on-remove="remove" on-toggle="toggle"></todo-item>
         </template>
       </div>
       

@@ -33,9 +33,9 @@ class MyModel extends PolymerElement {
     this.splice('todos', pos, 1);
   }
   toggleStatus(id) {
-    const index = this.todos.findIndex(item => item.id === id);
-    this.todos[index].completed = !this.todos[index].completed;
-    this.notifySplices('todos', {index: index, removed: [], addedCount: 0, object: this.todos, type: 'splice'});
+    const pos = this.todos.findIndex(item => item.id === id);
+    this.todos[pos].completed = !this.todos[pos].completed;
+    this.notifyPath('todos.' + pos);
   }
 }
 

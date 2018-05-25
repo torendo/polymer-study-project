@@ -22,13 +22,17 @@ class TodoItem extends PolymerElement {
   }
   static get properties() { return {
     todo: {
-      type: Object
+      type: Object,
+      observer: '_todoChanged'
     },
     completed: {
       type: Boolean,
       reflectToAttribute: true
     }
   }}
+  _todoChanged(newTodo) {
+    this.completed = newTodo.completed;
+  }
   handleRemove(e) {
     this.dispatchEvent(new CustomEvent('remove'));
   }
