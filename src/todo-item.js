@@ -15,24 +15,20 @@ class TodoItem extends PolymerElement {
       </style>
 
       <div class="container">
-        <paper-checkbox checked="[[todo.completed]]" class="flexchild" on-click="handleToggle">[[todo.description]]</paper-checkbox>
+        <paper-checkbox checked="{{todo.completed}}" class="flexchild" on-click="handleToggle">[[todo.description]]</paper-checkbox>
         <paper-icon-button icon="my-icons:close" on-click="handleRemove"></paper-icon-button>
       </div>
     `;
   }
   static get properties() { return {
     todo: {
-      type: Object,
-      observer: '_todoChanged'
+      type: Object
     },
     completed: {
       type: Boolean,
       reflectToAttribute: true
     }
   }}
-  _todoChanged(newTodo) {
-    this.completed = newTodo.completed;
-  }
   handleRemove(e) {
     this.dispatchEvent(new CustomEvent('remove'));
   }

@@ -34,7 +34,6 @@ class MyModel extends PolymerElement {
   }
   toggleStatus(id) {
     const pos = this.todos.findIndex(item => item.id === id);
-    this.todos[pos].completed = !this.todos[pos].completed;
     this.notifyPath('todos.' + pos);
   }
 }
