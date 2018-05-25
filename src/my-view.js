@@ -16,9 +16,6 @@ class MyView extends PolymerElement {
           display: block;
           padding: 10px;
         }
-        .completed {
-          text-decoration: underline;
-        }
       </style>
       
       <my-model id="todos" todos="{{todos}}" total="{{total}}"></my-model>
@@ -30,7 +27,7 @@ class MyView extends PolymerElement {
       
       <div class="card">
         <template is="dom-repeat" items="{{todos}}" sort="_sortTodos" as="todo">
-          <todo-item todo="{{todo}}" on-remove="remove" on-toggle="toggle"></todo-item>
+          <todo-item todo="{{todo}}" completed="[[todo.completed]]" on-remove="remove" on-toggle="toggle"></todo-item>
         </template>
       </div>
       
